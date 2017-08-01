@@ -11,5 +11,7 @@
     "chrome_url_overrides": {
         "newtab": "override.html"
     },
-    "permissions": []
+    "permissions": [
+      "geolocation"
+    ]
 }
