@@ -1,19 +1,20 @@
-navigator.geolocation.getCurrentPosition(function printCoordinates(pos){
-    console.log("The latitude is "+pos.coords.latitude);
-    console.log("The longitude is "+pos.coords.longitude);
 
-
-/*
-    $.ajax("http://api.openweathermap.org/data/2.5/weather?lat="+pos.coords.latitude"+"&lon="+pos.coords.longitude+"+"&APPID=722ffba8410bf98859daabb4beb54f09")
-     .done(function(data)){
-        console.log(data);
-     })
-*/
-     $.ajax({
-       url:"http://api.openweathermap.org/data/2.5/weather?lat="+pos.coords.latitude+"&lon="+pos.coords.longitude+"&APPID=722ffba8410bf98859daabb4beb54f09",
-       success: function(data){
-         console.log(data);
-       }
-     })
-
+$.ajax({
+    type:"POST",
+    url:"https://www.googleapis.com/geolocation/v1/geolocate?key=AIzaSyC0ve5-5CTwhnC53Vr94CYh3uMobXVIZc8",
+    success:getWeatherData
 });
+
+function getWeatherData(data){
+
+  console.log(data.location.lat);
+  console.log(data.location.lng);
+
+  $.ajax({
+    url:"http://api.openweathermap.org/data/2.5/weather?lat="+data.location.lat+"&lon="+data.location.lng+"&units=metric"+"&APPID=722ffba8410bf98859daabb4beb54f09",
+    success:function(weatherData){
+        console.log(weatherData.name);
+        console.log(weatherData.main.temp);
+    }
+  });
+}
