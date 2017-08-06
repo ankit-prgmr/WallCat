@@ -1,25 +1,4 @@
 
-
-$.ajax({
-    type:"POST",
-    url:"https://www.googleapis.com/geolocation/v1/geolocate?key=AIzaSyC0ve5-5CTwhnC53Vr94CYh3uMobXVIZc8",
-    success:getWeatherData
-});
-
-function getWeatherData(data){
-
-  console.log(data.location.lat);
-  console.log(data.location.lng);
-
-  $.ajax({
-    url:"http://api.openweathermap.org/data/2.5/weather?lat="+data.location.lat+"&lon="+data.location.lng+"&units=metric"+"&APPID=722ffba8410bf98859daabb4beb54f09",
-    success:function(weatherData){
-        console.log(weatherData.name);
-        console.log(weatherData.main.temp);
-    }
-  });
-}
-
 $(function(){
 
     if(localStorage.getItem("image_url") !== undefined && localStorage.getItem("image_url") !== null && !checkDateChange()){
@@ -106,3 +85,27 @@ $(function(){
     }
 
 });
+
+
+
+$.ajax({
+    type:"POST",
+    url:"https://www.googleapis.com/geolocation/v1/geolocate?key=AIzaSyC0ve5-5CTwhnC53Vr94CYh3uMobXVIZc8",
+    success:getWeatherData
+});
+
+function getWeatherData(data){
+
+  console.log(data.location.lat);
+  console.log(data.location.lng);
+
+  $.ajax({
+    url:"http://api.openweathermap.org/data/2.5/weather?lat="+data.location.lat+"&lon="+data.location.lng+"&units=metric"+"&APPID=722ffba8410bf98859daabb4beb54f09",
+    success:function(weatherData){
+        var imageURL = "http://openweathermap.org/img/w/"+ weatherData.weather[0].icon + ".png";
+        $('#weather-icon').html("<img src=" + imageURL + ">");
+        $('#weather-temp').html(weatherData.main.temp + String.fromCharCode(176) + "<br/>");
+        $('#location').html(weatherData.name);
+    }
+  });
+}
