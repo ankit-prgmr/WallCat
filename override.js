@@ -83,4 +83,48 @@ $(function(){
         }
     }
 
+
+    //Fetching Quotes from  API
+
+    if(localStorage.getItem("currentQuote") !== undefined && localStorage.getItem("currentQuote") !== null && !checkDateChange()){
+
+        $('#quoteblock').text(localStorage.getItem('currentQuote'));
+        $('#author').text(localStorage.getItem('currentAuthor'));
+        
+    }
+    else{
+        // Call Forismatic Api
+        fetchQuotesAPI();
+    }
+
+    
+    
+    function fetchQuotesAPI(){
+
+
+        var url = 'https://api.forismatic.com/api/1.0/?method=getQuote&format=jsonp&lang=en&jsonp=?';
+
+        
+        
+        $.getJSON(url, function(data) {
+
+
+            var currentQuote=data.quoteText;
+            var currentAuthor=data.quoteAuthor;
+            localStorage.setItem('currentQuote',currentQuote);
+            localStorage.setItem('currentAuthor',currentAuthor);
+            $('#quoteblock').text(currentQuote);
+            $('#author').text(currentAuthor);
+
+                
+            });
+
+
+ 
+   
+
+
+
+    };
+
 });
