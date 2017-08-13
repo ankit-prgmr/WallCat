@@ -3,7 +3,6 @@ body{
     flex-direction: column;
      background-size: cover;
     background-repeat: no-repeat;
-
 }
 .dateTime{
     display: flex;
@@ -37,7 +36,6 @@ body{
     font-weight: 700;
     font-size: 5vh;
     margin-top: 0;
-
 }
 
  #author{
@@ -47,8 +45,6 @@ body{
     font-weight: 700;
     font-size: 3vh;
     margin-top: 0;
-
-
 }
 
 #background-credits>a,#background-credits>span:nth-child(2), #background-credits>span:nth-child(2)>a{
