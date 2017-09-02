@@ -103,9 +103,8 @@ function getWeatherData(data){
     url:"http://api.openweathermap.org/data/2.5/weather?lat="+data.location.lat+"&lon="+data.location.lng+"&units=metric"+"&APPID=722ffba8410bf98859daabb4beb54f09",
     success:function(weatherData){
         var imageURL = "http://openweathermap.org/img/w/"+ weatherData.weather[0].icon + ".png";
-        $('#weather-icon').html("<img src=" + imageURL + ">");
-        $('#weather-temp').html(weatherData.main.temp + String.fromCharCode(176) + "<br/>");
-        $('#location').html(weatherData.name);
+        $('#weather-info').html("<img src=" + imageURL + " align='middle' margin-right=50px>"+weatherData.main.temp + String.fromCharCode(176));
+        $('#weather-location').html(weatherData.name);
     }
   });
 }
