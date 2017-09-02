@@ -87,13 +87,14 @@ $(function(){
 });
 
 
-
+//Get location coordinates and pass them to the weather api
 $.ajax({
     type:"POST",
     url:"https://www.googleapis.com/geolocation/v1/geolocate?key=AIzaSyC0ve5-5CTwhnC53Vr94CYh3uMobXVIZc8",
     success:getWeatherData
 });
 
+//Get weather info and display them
 function getWeatherData(data){
 
   console.log(data.location.lat);
