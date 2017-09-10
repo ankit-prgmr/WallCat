@@ -94,6 +94,7 @@ body{
     top:93vh;
     transform:translateY(-100%);
     left: 70vw;  
+    z-index:1;
 }
 
 .todoContainer .todo-toggle{
@@ -104,10 +105,12 @@ body{
     float: right;
     position:absolute;
     left: 20vw;
+    z-index:1;
 } 
 
 .todoContainer .todoDiv{
     display: none; 
+    z-index:1;
 } 
 
 #visibilty-box{
