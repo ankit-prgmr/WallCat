@@ -1,5 +1,26 @@
 
+
+
 $(function(){
+    //Personalised greeting prompt loads first
+
+       if (localStorage.getItem('userName') == undefined || localStorage.getItem('userName') == null) {
+    var user = prompt("Please enter your name");
+    if(user!=null) //if is not left blank
+{
+    localStorage.setItem('userName',user);
+}
+
+
+}
+
+      if (localStorage.getItem('userName') != null) {
+    document.getElementById("greeting").innerHTML =
+    "Hi " + localStorage.getItem('userName')+'!';
+}
+ 
+  
+    //Display background image
 
     if(localStorage.getItem("image_url") !== undefined && localStorage.getItem("image_url") !== null && !checkDateChange()){
         $('body').css('background-image', 'url(\'' + localStorage.getItem("image_url") + '\')');
@@ -113,7 +134,7 @@ $(function(){
                     });
         
             };
-});
+
 
 
 //Get location coordinates and pass them to the weather api
@@ -126,8 +147,6 @@ $.ajax({
 //Get weather info and display them
 function getWeatherData(data){
 
-  console.log(data.location.lat);
-  console.log(data.location.lng);
 
   $.ajax({
     url:"http://api.openweathermap.org/data/2.5/weather?lat="+data.location.lat+"&lon="+data.location.lng+"&units=metric"+"&APPID=722ffba8410bf98859daabb4beb54f09",
@@ -138,6 +157,8 @@ function getWeatherData(data){
     }
   });
 }
+
+});
 
 
 
