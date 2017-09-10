@@ -84,3 +84,24 @@ body{
     font-size: 1.25em;
     margin-top: 0;
 }
+
+.todoContainer{
+    position:absolute;
+    top:93vh;
+    transform:translateY(-100%);
+    left: 70vw;  
+}
+
+.todoContainer .todo-toggle{
+    color: white;
+    font-size: 14px;
+    font-weight: 500;
+    cursor: pointer;
+    float: right;
+    position:absolute;
+    left: 20vw;
+} 
+
+.todoContainer .todoDiv{
+    display: none; 
+} 

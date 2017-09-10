@@ -112,7 +112,12 @@ $(function(){
                         
                     });
         
-            };
+            }
+    
+    var todoToggle = document.getElementById("todo-toggle");
+    todoToggle.addEventListener('click', function(e){
+            $(".todoDiv").toggle();
+    });
 });
 
 
