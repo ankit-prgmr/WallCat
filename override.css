@@ -17,7 +17,8 @@ body{
     text-align: center;
     color: white;
     font-weight: 500;
-    margin-bottom: 0
+    margin-bottom: 0;
+    z-index:1;
 }
 
 #date{
@@ -27,6 +28,7 @@ body{
     font-weight: 700;
     font-size: 5em;
     margin-top: 0;
+    z-index:1;
 }
 
 #quoteblock{
@@ -36,15 +38,17 @@ body{
     font-weight: 700;
     font-size: 5vh;
     margin-top: 0;
+    z-index:1;
 }
 
  #author{
-  font-family: Arial, Helvetica, sans-serif;
+    font-family: Arial, Helvetica, sans-serif;
     text-align: center;
     color: white;
     font-weight: 700;
     font-size: 3vh;
     margin-top: 0;
+    z-index:1;
 }
 
 #background-credits>a,#background-credits>span:nth-child(2), #background-credits>span:nth-child(2)>a{
@@ -105,3 +109,16 @@ body{
 .todoContainer .todoDiv{
     display: none; 
 } 
+
+#visibilty-box{
+    position:absolute;
+    z-index:-1;
+    top:0;
+    bottom:0;
+    left:0;
+    right:0;
+    margin:auto;
+    width:100vmax;
+    background-color: black;
+    opacity:0.20;
+}
